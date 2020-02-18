@@ -1,0 +1,8 @@
+---
+apiVersion: "integration.wso2.com/v1alpha1"
+kind: "Integration"
+metadata:
+  name: "airline-reservation"
+spec:
+  replicas: 1
+  image: "sajithagimash/airline-reservation:1.0.0"
