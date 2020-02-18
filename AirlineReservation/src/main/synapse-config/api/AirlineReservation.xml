@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<api context="/reservation" name="AirlineReservation" xmlns="http://ws.apache.org/ns/synapse">
+    <resource methods="POST GET" uri-template="/new">
+        <inSequence>
+            <log>
+                <property name="Airline Reservation" value="New Reservation Triggered"/>
+            </log>
+            <clone>
+                <target>
+                    <sequence>
+                        <datamapper config="gov:datamapper/AirlineReservationConfig.dmc" inputSchema="gov:datamapper/AirlineReservationConfig_inputSchema.json" inputType="JSON" outputSchema="gov:datamapper/AirlineReservationConfig_outputSchema.json" outputType="XML" xsltStyleSheet="gov:datamapper/AirlineReservationConfig_xsltStyleSheet.xml"/>
+                        <call>
+                            <endpoint key="LegacyNewReservationSOAPEndpoint"/>
+                        </call>
+                        <respond/>
+                    </sequence>
+                </target>
+                <target>
+                    <sequence>
+                        <propertyGroup>
+                            <property expression="$body" name="payload" scope="default" type="STRING"/>
+                            <property expression="fn:concat('/Users/sajithaliyanage/Desktop/AirplaneReservation/reservation-', get-property(&quot;SYSTEM_DATE&quot;, &quot;yyyy-MM-dd'T'HH:mm:ss.SSSXXX&quot;))" name="sourceURL" scope="default" type="STRING"/>
+                        </propertyGroup>
+                        <fileconnector.create>
+                            <source>{$ctx:sourceURL}</source>
+                            <inputContent>{$ctx:payload}</inputContent>
+                        </fileconnector.create>
+                        <drop/>
+                    </sequence>
+                </target>
+            </clone>
+        </inSequence>
+        <outSequence/>
+        <faultSequence/>
+    </resource>
+</api>

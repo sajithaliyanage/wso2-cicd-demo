@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<endpoint name="LegacyUpdateReservationSOAPEndpoint" xmlns="http://ws.apache.org/ns/synapse">
+    <http method="get" uri-template="http://www.mocky.io/v2/5e4a32ec2f0000690097cf8b">
+        <suspendOnFailure>
+            <initialDuration>-1</initialDuration>
+            <progressionFactor>1.0</progressionFactor>
+        </suspendOnFailure>
+        <markForSuspension>
+            <retriesBeforeSuspension>0</retriesBeforeSuspension>
+        </markForSuspension>
+    </http>
+</endpoint>

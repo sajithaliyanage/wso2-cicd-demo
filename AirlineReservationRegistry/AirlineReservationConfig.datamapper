@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<datamapper:DataMapperRoot xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:datamapper="http:///org/wso2/developerstudio/eclipse/gmf/datamapper">
+  <input>
+    <treeNode name="root" schemaDataType="OBJECT" level="1">
+      <node name="customerName" schemaDataType="STRING" level="2">
+        <properties key="type" value="string"/>
+        <properties key="id" value="http://wso2jsonschema.org/customerName"/>
+        <properties key="nullable" value="false"/>
+        <outNode>
+          <outgoingLink inNode="//@output/@treeNode.0/@node.1/@node.0/@inNode"/>
+        </outNode>
+        <inNode/>
+      </node>
+      <node name="passportNumber" schemaDataType="NUMBER" level="2">
+        <properties key="type" value="number"/>
+        <properties key="id" value="http://wso2jsonschema.org/passportNumber"/>
+        <properties key="nullable" value="false"/>
+        <outNode>
+          <outgoingLink inNode="//@output/@treeNode.0/@node.1/@node.2/@inNode"/>
+        </outNode>
+        <inNode/>
+      </node>
+      <node name="ticketDetails" level="2">
+        <node name="ticketId" schemaDataType="NUMBER" level="3">
+          <properties key="type" value="number"/>
+          <properties key="id" value="http://wso2jsonschema.org/ticketDetails/0/ticketId"/>
+          <properties key="nullable" value="false"/>
+          <outNode>
+            <outgoingLink inNode="//@output/@treeNode.0/@node.1/@node.2/@node.0/@node.0/@inNode"/>
+          </outNode>
+          <inNode/>
+        </node>
+        <node name="airline" schemaDataType="STRING" level="3">
+          <properties key="type" value="string"/>
+          <properties key="id" value="http://wso2jsonschema.org/ticketDetails/0/airline"/>
+          <properties key="nullable" value="false"/>
+          <outNode>
+            <outgoingLink inNode="//@output/@treeNode.0/@node.1/@node.2/@node.0/@node.1/@inNode"/>
+          </outNode>
+          <inNode/>
+        </node>
+        <node name="price" schemaDataType="STRING" level="3">
+          <properties key="type" value="string"/>
+          <properties key="id" value="http://wso2jsonschema.org/ticketDetails/0/price"/>
+          <properties key="nullable" value="false"/>
+          <outNode>
+            <outgoingLink inNode="//@output/@treeNode.0/@node.1/@node.2/@node.0/@node.2/@inNode"/>
+          </outNode>
+          <inNode/>
+        </node>
+        <properties key="type" value="array"/>
+        <properties key="id" value="http://wso2jsonschema.org/ticketDetails"/>
+        <properties key="items_id" value="http://wso2jsonschema.org/ticketDetails/0"/>
+        <properties key="items_type" value="object"/>
+        <properties key="nullable" value="false"/>
+        <properties key="properties_id" value="{ticketId={id=http://wso2jsonschema.org/ticketDetails/0/ticketId, type=number}, airline={id=http://wso2jsonschema.org/ticketDetails/0/airline, type=string}, price={id=http://wso2jsonschema.org/ticketDetails/0/price, type=string}}"/>
+        <outNode/>
+        <inNode/>
+      </node>
+      <properties key="type" value="object"/>
+      <properties key="$schema" value="http://wso2.org/json-schema/wso2-data-mapper-v5.0.0/schema#"/>
+      <properties key="id" value="http://wso2jsonschema.org"/>
+      <properties key="nullable" value="false"/>
+      <outNode/>
+      <inNode/>
+    </treeNode>
+  </input>
+  <output>
+    <treeNode name="soapenv:Envelope" schemaDataType="OBJECT" level="1">
+      <node name="soapenv:Header" schemaDataType="NULL" level="2">
+        <properties key="namespaces" value="{prefix=soapenv, url=http://www.w3.org/2003/05/soap-envelope}"/>
+        <properties key="type" value="null"/>
+        <properties key="id" value="http://wso2jsonschema.org/soapenv:Header"/>
+        <properties key="nullable" value="false"/>
+        <outNode/>
+        <inNode/>
+      </node>
+      <node name="soapenv:Body" schemaDataType="OBJECT" level="2">
+        <node name="customerName" schemaDataType="STRING" level="3">
+          <properties key="type" value="string"/>
+          <properties key="id" value="http://wso2jsonschema.org/soapenv:Body/customerName"/>
+          <properties key="nullable" value="false"/>
+          <outNode/>
+          <inNode incomingLink="//@input/@treeNode.0/@node.0/@outNode/@outgoingLink.0"/>
+        </node>
+        <node name="passportNumber" schemaDataType="NUMBER" level="3">
+          <properties key="type" value="number"/>
+          <properties key="id" value="http://wso2jsonschema.org/soapenv:Body/passportNumber"/>
+          <properties key="nullable" value="false"/>
+          <outNode/>
+          <inNode/>
+        </node>
+        <node name="ticketDetails" schemaDataType="OBJECT" level="3">
+          <node name="ticketDetail" level="4">
+            <node name="ticketId" schemaDataType="NUMBER" level="5">
+              <properties key="type" value="number"/>
+              <properties key="id" value="http://wso2jsonschema.org/soapenv:Body/ticketDetails/ticketDetail/0/ticketId"/>
+              <properties key="nullable" value="false"/>
+              <outNode/>
+              <inNode incomingLink="//@input/@treeNode.0/@node.2/@node.0/@outNode/@outgoingLink.0"/>
+            </node>
+            <node name="airline" schemaDataType="STRING" level="5">
+              <properties key="type" value="string"/>
+              <properties key="id" value="http://wso2jsonschema.org/soapenv:Body/ticketDetails/ticketDetail/0/airline"/>
+              <properties key="nullable" value="false"/>
+              <outNode/>
+              <inNode incomingLink="//@input/@treeNode.0/@node.2/@node.1/@outNode/@outgoingLink.0"/>
+            </node>
+            <node name="price" schemaDataType="STRING" level="5">
+              <properties key="type" value="string"/>
+              <properties key="id" value="http://wso2jsonschema.org/soapenv:Body/ticketDetails/ticketDetail/0/price"/>
+              <properties key="nullable" value="false"/>
+              <outNode/>
+              <inNode incomingLink="//@input/@treeNode.0/@node.2/@node.2/@outNode/@outgoingLink.0"/>
+            </node>
+            <properties key="type" value="array"/>
+            <properties key="id" value="http://wso2jsonschema.org/soapenv:Body/ticketDetails/ticketDetail"/>
+            <properties key="items_id" value="http://wso2jsonschema.org/soapenv:Body/ticketDetails/ticketDetail/0"/>
+            <properties key="items_type" value="object"/>
+            <properties key="nullable" value="false"/>
+            <properties key="properties_id" value="{ticketId={id=http://wso2jsonschema.org/soapenv:Body/ticketDetails/ticketDetail/0/ticketId, type=number}, airline={id=http://wso2jsonschema.org/soapenv:Body/ticketDetails/ticketDetail/0/airline, type=string}, price={id=http://wso2jsonschema.org/soapenv:Body/ticketDetails/ticketDetail/0/price, type=string}}"/>
+            <outNode/>
+            <inNode/>
+          </node>
+          <properties key="type" value="object"/>
+          <properties key="id" value="http://wso2jsonschema.org/soapenv:Body/ticketDetails"/>
+          <properties key="nullable" value="false"/>
+          <properties key="properties_id" value="{ticketDetail={id=http://wso2jsonschema.org/soapenv:Body/ticketDetails/ticketDetail, type=array, items=[{id=http://wso2jsonschema.org/soapenv:Body/ticketDetails/ticketDetail/0, type=object, properties={ticketId={id=http://wso2jsonschema.org/soapenv:Body/ticketDetails/ticketDetail/0/ticketId, type=number}, airline={id=http://wso2jsonschema.org/soapenv:Body/ticketDetails/ticketDetail/0/airline, type=string}, price={id=http://wso2jsonschema.org/soapenv:Body/ticketDetails/ticketDetail/0/price, type=string}}}]}}"/>
+          <outNode/>
+          <inNode incomingLink="//@input/@treeNode.0/@node.1/@outNode/@outgoingLink.0"/>
+        </node>
+        <properties key="namespaces" value="{prefix=soapenv, url=http://www.w3.org/2003/05/soap-envelope}"/>
+        <properties key="type" value="object"/>
+        <properties key="id" value="http://wso2jsonschema.org/soapenv:Body"/>
+        <properties key="nullable" value="false"/>
+        <properties key="properties_id" value="{customerName={id=http://wso2jsonschema.org/soapenv:Body/customerName, type=string}, passportNumber={id=http://wso2jsonschema.org/soapenv:Body/passportNumber, type=number}, ticketDetails={id=http://wso2jsonschema.org/soapenv:Body/ticketDetails, type=object, properties={ticketDetail={id=http://wso2jsonschema.org/soapenv:Body/ticketDetails/ticketDetail, type=array, items=[{id=http://wso2jsonschema.org/soapenv:Body/ticketDetails/ticketDetail/0, type=object, properties={ticketId={id=http://wso2jsonschema.org/soapenv:Body/ticketDetails/ticketDetail/0/ticketId, type=number}, airline={id=http://wso2jsonschema.org/soapenv:Body/ticketDetails/ticketDetail/0/airline, type=string}, price={id=http://wso2jsonschema.org/soapenv:Body/ticketDetails/ticketDetail/0/price, type=string}}}]}}}}"/>
+        <outNode/>
+        <inNode/>
+      </node>
+      <properties key="namespaces" value="{prefix=soapenv, url=http://www.w3.org/2003/05/soap-envelope}"/>
+      <properties key="namespaces" value="{prefix=soapenv, url=http://www.w3.org/2003/05/soap-envelope}"/>
+      <properties key="type" value="object"/>
+      <properties key="$schema" value="http://wso2.org/json-schema/wso2-data-mapper-v5.0.0/schema#"/>
+      <properties key="id" value="http://wso2jsonschema.org"/>
+      <properties key="nullable" value="false"/>
+      <outNode/>
+      <inNode/>
+    </treeNode>
+  </output>
+</datamapper:DataMapperRoot>

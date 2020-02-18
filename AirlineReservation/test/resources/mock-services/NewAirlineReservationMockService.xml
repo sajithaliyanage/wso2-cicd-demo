@@ -1,0 +1,22 @@
+<mock-service>
+    <service-name>LegacyNewReservationSOAPEndpoint</service-name>
+    <port>9090</port>
+    <context>/reservation/new</context>
+    <resources>
+        <resource>
+            <sub-context>/</sub-context>
+            <method>GET</method>
+            <response>
+                <status-code>200</status-code>
+                <payload><![CDATA[{
+    "message" : "Airline Reservation has been placed successfully",
+    "status" : "OK",
+    "passportNumber": 323232131,
+    "reservationId" : 3121233,
+    "ticketIds" : [1212,1213],
+    "totalAmount": "$800"
+}]]></payload>
+            </response>
+        </resource>
+    </resources>
+</mock-service>

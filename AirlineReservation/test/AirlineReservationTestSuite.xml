@@ -1,0 +1,83 @@
+<unit-test>
+    <artifacts>
+        <test-artifact>
+            <artifact>/AirlineReservation/src/main/synapse-config/api/AirlineReservation.xml</artifact>
+        </test-artifact>
+        <supportive-artifacts>
+            <artifact>/AirlineReservation/src/main/synapse-config/endpoints/LegacyNewReservationSOAPEndpoint.xml</artifact>
+        </supportive-artifacts>
+        <registry-resources>
+            <registry-resource>
+                <file-name>AirlineReservationConfig_outputSchema.json</file-name>
+                <artifact>/AirlineReservationRegistry/AirlineReservationConfig_outputSchema.json</artifact>
+                <registry-path>/_system/governance/datamapper</registry-path>
+                <media-type>text/plain</media-type>
+            </registry-resource>
+            <registry-resource>
+                <file-name>AirlineReservationConfig.dmc</file-name>
+                <artifact>/AirlineReservationRegistry/AirlineReservationConfig.dmc</artifact>
+                <registry-path>/_system/governance/datamapper</registry-path>
+                <media-type>text/plain</media-type>
+            </registry-resource>
+            <registry-resource>
+                <file-name>AirlineReservationConfig_inputSchema.json</file-name>
+                <artifact>/AirlineReservationRegistry/AirlineReservationConfig_inputSchema.json</artifact>
+                <registry-path>/_system/governance/datamapper</registry-path>
+                <media-type>text/plain</media-type>
+            </registry-resource>
+            <registry-resource>
+                <file-name>AirlineReservationConfig_xsltStyleSheet.xml</file-name>
+                <artifact>/AirlineReservationRegistry/AirlineReservationConfig_xsltStyleSheet.xml</artifact>
+                <registry-path>/_system/governance/datamapper</registry-path>
+                <media-type>text/plain</media-type>
+            </registry-resource>
+        </registry-resources>
+        <connector-resources>
+            <connector-resource>/AirlineReservationConnectors/fileconnector-connector-2.0.21.zip</connector-resource>
+        </connector-resources>
+    </artifacts>
+    <test-cases>
+        <test-case name="NewReservation">
+            <input>
+                <request-path>/new</request-path>
+                <request-method>POST</request-method>
+                <payload><![CDATA[{
+    "customerName": "John Smith",
+    "passportNumber": 323232131,
+    "ticketDetails" : [
+        {
+            "ticketId" : 1212,
+            "airline" : "ABC-Airline",
+            "price" : "$400"
+        },
+        {
+            "ticketId" : 1213,
+            "airline" : "ABC-Airline",
+            "price" : "$400"
+        }
+    ]
+}]]></payload>
+                <properties>
+                    <property name="Content-Type" scope="transport" value="application/json"/>
+                </properties>
+            </input>
+            <assertions>
+                <assertEquals>
+                    <actual>$body</actual>
+                    <expected><![CDATA[{
+    "message" : "Airline Reservation has been placed successfully",
+    "status" : "OK",
+    "passportNumber": 323232131,
+    "reservationId" : 3121233,
+    "ticketIds" : [1212,1213],
+    "totalAmount": "$800"
+}]]></expected>
+                    <message>Expected response not found</message>
+                </assertEquals>
+            </assertions>
+        </test-case>
+    </test-cases>
+    <mock-services>
+        <mock-service>/AirlineReservation/test/resources/mock-services/NewAirlineReservationMockService.xml</mock-service>
+    </mock-services>
+</unit-test>

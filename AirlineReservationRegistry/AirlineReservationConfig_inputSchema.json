@@ -1,0 +1,39 @@
+{
+  "$schema" : "http://wso2.org/json-schema/wso2-data-mapper-v5.0.0/schema#",
+  "inputType" : "JSON",
+  "id" : "http://wso2jsonschema.org",
+  "title" : "root",
+  "type" : "object",
+  "properties" : {
+    "customerName" : {
+      "id" : "http://wso2jsonschema.org/customerName",
+      "type" : "string"
+    },
+    "passportNumber" : {
+      "id" : "http://wso2jsonschema.org/passportNumber",
+      "type" : "number"
+    },
+    "ticketDetails" : {
+      "id" : "http://wso2jsonschema.org/ticketDetails",
+      "type" : "array",
+      "items" : [ {
+        "id" : "http://wso2jsonschema.org/ticketDetails/0",
+        "type" : "object",
+        "properties" : {
+          "ticketId" : {
+            "id" : "http://wso2jsonschema.org/ticketDetails/0/ticketId",
+            "type" : "number"
+          },
+          "airline" : {
+            "id" : "http://wso2jsonschema.org/ticketDetails/0/airline",
+            "type" : "string"
+          },
+          "price" : {
+            "id" : "http://wso2jsonschema.org/ticketDetails/0/price",
+            "type" : "string"
+          }
+        }
+      } ]
+    }
+  }
+}

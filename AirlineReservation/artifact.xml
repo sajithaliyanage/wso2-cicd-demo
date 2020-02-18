@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?><artifacts>
+    <artifact name="AirlineReservation" groupId="com.example.AirlineReservation.api" version="1.0.0" type="synapse/api" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/api/AirlineReservation.xml</file>
+    </artifact>
+    <artifact name="LegacyNewReservationSOAPEndpoint" groupId="com.example.AirlineReservation.endpoint" version="1.0.0" type="synapse/endpoint" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/endpoints/LegacyNewReservationSOAPEndpoint.xml</file>
+    </artifact>
+    <artifact name="LegacyUpdateReservationSOAPEndpoint" groupId="com.example.AirlineReservation.endpoint" version="1.0.0" type="synapse/endpoint" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/endpoints/LegacyUpdateReservationSOAPEndpoint.xml</file>
+    </artifact>
+</artifacts>

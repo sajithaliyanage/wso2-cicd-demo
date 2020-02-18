@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?><artifacts>
+    <artifact name="AirlineReservationConfig" groupId="com.example.AirlineReservationRegistry.resource" version="1.0.0" type="registry/resource" serverRole="EnterpriseServiceBus">
+        <item>
+            <file>AirlineReservationConfig.dmc</file>
+            <path>/_system/governance/datamapper</path>
+            <mediaType>text/plain</mediaType>
+        </item>
+    </artifact>
+    <artifact name="AirlineReservationConfig_inputSchema" groupId="com.example.AirlineReservationRegistry.resource" version="1.0.0" type="registry/resource" serverRole="EnterpriseServiceBus">
+        <item>
+            <file>AirlineReservationConfig_inputSchema.json</file>
+            <path>/_system/governance/datamapper</path>
+            <mediaType>text/plain</mediaType>
+        </item>
+    </artifact>
+    <artifact name="AirlineReservationConfig_outputSchema" groupId="com.example.AirlineReservationRegistry.resource" version="1.0.0" type="registry/resource" serverRole="EnterpriseServiceBus">
+        <item>
+            <file>AirlineReservationConfig_outputSchema.json</file>
+            <path>/_system/governance/datamapper</path>
+            <mediaType>text/plain</mediaType>
+        </item>
+    </artifact>
+    <artifact name="AirlineReservationConfig_xsltStyleSheet" groupId="com.example.AirlineReservationRegistry.resource" version="1.0.0" type="registry/resource" serverRole="EnterpriseServiceBus">
+        <item>
+            <file>AirlineReservationConfig_xsltStyleSheet.xml</file>
+            <path>/_system/governance/datamapper</path>
+            <mediaType>text/plain</mediaType>
+        </item>
+    </artifact>
+</artifacts>
