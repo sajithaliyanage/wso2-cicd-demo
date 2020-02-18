@@ -13,6 +13,7 @@
     <module>AirlineReservationRegistry</module>
     <module>AirlineReservationConnectors</module>
     <module>AirlineReservationComposite</module>
+    <module>AirlineReservationK8s</module>
   </modules>
   <build>
     <plugins>
