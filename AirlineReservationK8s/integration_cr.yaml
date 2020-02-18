@@ -5,4 +5,4 @@ metadata:
   name: "airline-reservation"
 spec:
   replicas: 1
-  image: "sajithagimash/airline-reservation:1.0.0"
+  image: "sajithagimash/airline-reservation:1.1.0"

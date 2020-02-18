@@ -33,4 +33,36 @@
         <outSequence/>
         <faultSequence/>
     </resource>
+    <resource methods="POST GET" uri-template="/update">
+        <inSequence>
+            <log>
+                <property name="Airline Reservation" value="Update airline reservation triggered"/>
+            </log>
+            <payloadFactory media-type="xml">
+                <format>
+                    <soapenv:Envelope xmlns:soapenv="http://www.w3.org/2003/05/soap-envelope">
+                        <soapenv:Header/>
+                        <soapenv:Body>
+                            <reservationID xmlns="">$1</reservationID>
+                            <ticketID xmlns="">$2</ticketID>
+                            <newAirline xmlns="">$3</newAirline>
+                            <newPrice xmlns="">$4</newPrice>
+                        </soapenv:Body>
+                    </soapenv:Envelope>
+                </format>
+                <args>
+                    <arg evaluator="xml" expression="//airline/reservationId"/>
+                    <arg evaluator="xml" expression="//airline/ticketId"/>
+                    <arg evaluator="xml" expression="//airline/newAirline"/>
+                    <arg evaluator="xml" expression="//airline/newPrice"/>
+                </args>
+            </payloadFactory>
+            <call>
+                <endpoint key="LegacyUpdateReservationSOAPEndpoint"/>
+            </call>
+            <respond/>
+        </inSequence>
+        <outSequence/>
+        <faultSequence/>
+    </resource>
 </api>

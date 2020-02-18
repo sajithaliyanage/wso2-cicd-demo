@@ -107,7 +107,7 @@
               <username>${username}</username>
               <password>${password}</password>
               <repository>sajithagimash/airline-reservation</repository>
-              <tag>1.0.0</tag>
+              <tag>1.1.0</tag>
             </configuration>
           </execution>
         </executions>
